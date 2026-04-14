@@ -1,0 +1,41 @@
+# INSERT ALL Best Practices and Usage for SQL
+
+The `INSERT ALL` statement allows you to insert multiple rows into one or more tables with a single SQL statement.
+
+## Syntax
+```sql
+INSERT ALL
+  INTO table_name (column1, column2) VALUES (value1, value2)
+  INTO table_name (column1, column2) VALUES (value3, value4)
+SELECT * FROM dual;
+
+
+Best Practices
+1. Use Appropriate Conditions
+Ensure that you have the correct conditions for each INTO clause, especially when inserting from different sources.
+
+2. Minimize Duplicates
+Use conditions to prevent inserting duplicate records unless necessary, as this may help maintain data integrity.
+
+3. Batch Inserts Wisely
+Group similar inserts together in one INSERT ALL statement to reduce transaction overhead and enhance performance.
+
+4. Avoid Long Statements
+If the INSERT ALL statement becomes too lengthy, consider breaking it down into smaller batches for better readability and maintenance.
+
+5. Test Performance
+Analyze the performance of your INSERT ALL statements in various conditions to ensure efficiency.
+
+Example
+Consider a scenario where you want to insert multiple rows into a table named employees:
+
+SQL
+INSERT ALL
+    INTO employees (id, name, department) VALUES (1, 'John Doe', 'Sales')
+    INTO employees (id, name, department) VALUES (2, 'Jane Smith', 'Marketing')
+    INTO employees (id, name, department) VALUES (3, 'Emily Johnson', 'IT')
+SELECT * FROM dual;
+This example effectively adds three new employees to the employees table.
+
+Conclusion
+The INSERT ALL statement can greatly improve the efficiency of your SQL data manipulation operations when used correctly. Always follow best practices to ensure optimal performance and data integrity.
